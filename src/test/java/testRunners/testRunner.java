@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = {"stepDefs","Hooks"},
         monochrome = true,
 //        strict = true,
-        plugin = { "pretty", "html:target/html-reports" },
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","junit:target/XMLReport.xml" },
         tags = "@Test"
 )
 public class testRunner {
