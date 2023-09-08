@@ -12,6 +12,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BaseClass {
     public static WebDriver driver;
@@ -52,6 +54,18 @@ public class BaseClass {
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--headless");
             driver = new EdgeDriver(options);
+        }
+        else if (browser.equalsIgnoreCase("devices")){
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--window-size=360,740");
+            Map<String, String> mobileEmulation = new HashMap<>();
+            mobileEmulation.put("deviceName", "iPad Mini");
+            chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+            driver = new ChromeDriver(chromeOptions);
         }
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
