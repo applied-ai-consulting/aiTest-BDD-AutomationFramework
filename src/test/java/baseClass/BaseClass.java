@@ -19,6 +19,7 @@ public class BaseClass {
     public static WebDriver driver;
     public static Logger log = (Logger) LogManager.getLogger("Test Step");
     public static String browser = System.getenv("BROWSER");
+    public static String device_Name = System.getenv("DEVICE_NAME");
     public static void launchBrowser(){
         log.info("Launching " + browser + " Browser");
         if (browser == null) {
@@ -56,16 +57,31 @@ public class BaseClass {
             driver = new EdgeDriver(options);
         }
         else if (browser.equalsIgnoreCase("devices")){
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--window-size=360,740");
-            Map<String, String> mobileEmulation = new HashMap<>();
-            mobileEmulation.put("deviceName", "iPad Mini");
-            chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-            driver = new ChromeDriver(chromeOptions);
+            if(device_Name == null){
+                device_Name = "iPad Mini";
+                WebDriverManager.chromedriver().setup();
+                log.info("Running on Default Device , Device name:"+device_Name);
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--headless");
+                Map<String, String> mobileEmulation = new HashMap<>();
+                mobileEmulation.put("deviceName", device_Name);
+                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+                driver = new ChromeDriver(chromeOptions);
+            }
+            else {
+                WebDriverManager.chromedriver().setup();
+                log.info("Device name:" + device_Name);
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--headless");
+                Map<String, String> mobileEmulation = new HashMap<>();
+                mobileEmulation.put("deviceName", device_Name);
+                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+                driver = new ChromeDriver(chromeOptions);
+            }
         }
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
