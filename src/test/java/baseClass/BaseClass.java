@@ -32,7 +32,7 @@ public class BaseClass {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--headless");
+      //      chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
         }
         else if(browser.equalsIgnoreCase("Chrome")){
@@ -41,7 +41,7 @@ public class BaseClass {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--headless");
+       //     chromeOptions.addArguments("--headless");
             driver = new ChromeDriver(chromeOptions);
         }
         else if (browser.equalsIgnoreCase("Firefox")){
@@ -92,7 +92,7 @@ public class BaseClass {
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(60));
         driver.manage().window().maximize();
         log.info("Navigating to URL");
-        driver.get("https://www.google.com");
+      //  driver.get("https://www.google.com");
     }
 
     public static void quit(){
