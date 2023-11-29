@@ -16,12 +16,14 @@ public class CoursePage extends BaseClass {
     this.driver = driver;
   }
   
+// TODO STEP 1: Idenitfy course based on xpath (keep name constant)
   public void clickontheCourses() throws InterruptedException {
 	  Thread.sleep(500);
 	  WebElement elementToClick = driver.findElement(By.xpath("(//span[@class='nav-link-title ng-star-inserted'][normalize-space()='Courses 1'])[1]"));
     elementToClick.click();
   }
-  
+
+// TODO STEP 2: Idenitfy course based on xpath (keep name constant)
   public void clickOnFirstCourse() throws InterruptedException {
 	Thread.sleep(1000);
 //    WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(1) .mat-card-image"));
@@ -32,6 +34,7 @@ public class CoursePage extends BaseClass {
     Thread.sleep(1000);
     firstCourse.click();
   }
+// TODO STEP 3: Idenitfy course based on xpath (keep name constant)
   public void clickOnCourseRegistorbutton() throws InterruptedException {
 	  Thread.sleep(1000);
 	    WebElement elementToClick = driver.findElement(By.xpath("//h3[text()='Register']"));
