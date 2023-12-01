@@ -89,9 +89,9 @@ public class EventRegistrationSteps extends BaseClass {
     }
 
     @Then("^User should see a confirmation of successful event registration$")
-    public void user_should_see_a_confirmation_of_successful_event_registration() {
-        //Assert.assertTrue(eventRegistrationPage.isRegistrationSuccessful());
-        log.info("User saw a confirmation of successful event registration");
+    public void user_should_see_a_confirmation_of_successful_event_registration() throws InterruptedException {
+        Assert.assertTrue(eventRegistrationPage.isRegistrationSuccessful());
+        log.info("🌟 Registration Confirmed! 🌟");
     }
 }
 
