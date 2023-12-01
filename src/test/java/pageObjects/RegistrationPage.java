@@ -51,7 +51,7 @@ public class RegistrationPage extends BaseClass {
 	  
   public boolean isRegistrationSuccessful() throws InterruptedException {
 	  Thread.sleep(1000);
-    WebElement successMessage = driver.findElement(By.xpath("//h2[contains(text(),'ðŸŒŸ Registration Confirmed! ðŸŒŸ')]"));
+    WebElement successMessage = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]"));
     return successMessage.isDisplayed();
   }
 }

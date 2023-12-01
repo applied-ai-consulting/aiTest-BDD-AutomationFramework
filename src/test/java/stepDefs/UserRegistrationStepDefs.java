@@ -74,6 +74,6 @@ public class UserRegistrationStepDefs extends BaseClass {
   @Then("I should be successfully registered for the course")
   public void iShouldBeSuccessfullyRegistered() throws InterruptedException {
     Assert.assertTrue(registrationPage.isRegistrationSuccessful());
-    log.info("ðŸŒŸ Registration Confirmed! ðŸŒŸ");
+    log.info("🌟 Registration Confirmed! 🌟");
   }
 }
