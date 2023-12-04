@@ -28,17 +28,12 @@ sidebar:
 i) Add Page Objects java files under  ``` src/test/java>PageObjects ``` package.                                                 
  a) Copy the ``` .java file ``` which is under the ``` PageObjects folder ``` which is generated using  Automation Co-pilot.
  b) Right click on the ``` PageObjects ``` package and paste the java files which are generated using Automation Co-pilot.
- ![pageobjectsfile](../../images/page-objects-file.png)
 ii) Add step definition file under ``` src/test/java>StepDefs ``` package.                                                       
 a) Copy the ``` .java file ``` which is under ``` StepDefs folder ``` which is generated using  Automation Co-pilot.
- ![stepdefsfile](../../images/stepdefs-file.png)
 b) Right click on the ``` StepDefs ``` package and paste the java files which is generated using Automation Co-pilot.
- ![stepdeffile](../../images/stepdef-file.png)
 iii) Add the ``` .feature file ``` under the ``` src/test/Resources/features ``` folder.                                         
 a) Copy the ``` .feature file ``` which is under ``` features folder ``` which is generated using Automation Co-pilot.
- ![featurefile](../../images/feature-file.png)
 b) Right click on the ``` Feature folder ``` and paste the java files which is generated using Automation Co-pilot.
- ![featurefolderfile](../../images/feature-folder-file.png)
 
 ## Run Command
  * ```mvn test ``` This will execute all scenarios from all features using terminal 
