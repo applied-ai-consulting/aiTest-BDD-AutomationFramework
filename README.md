@@ -27,6 +27,7 @@ sidebar:
 4. Steps to add files in framework.                                                                                              
 i) Add Page Objects java files under  ``` src/test/java>PageObjects ``` package.                                                 
 a) Copy the ``` .java file ``` which is under the ``` PageObjects folder ``` which is generated using  Automation Co-pilot.
+
 b) Right click on the ``` PageObjects ``` package and paste the java files which are generated using Automation Co-pilot.
  ![pageobjectsfile](../../images/page-objects-file.png)
 ii) Add step definition file under ``` src/test/java>StepDefs ``` package.                                                       
