@@ -55,3 +55,4 @@ You can execute scenarios from all features using the following terminal command
 
 ```shell
 mvn test
+mvn test -Dcucumber.options="--tags @TagName"
