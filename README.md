@@ -26,7 +26,8 @@ sidebar:
 3. Need to have ``` Intellij IDE/VS code/Eclipse IDE ``` to import an auto generated code inside the base framework in respective folders such as .feature file will come under feature folder, Pages.java come under PageObjects package,step definitions come under stepDefs package. Unzip the generated automation code.
 4. Steps to add files in framework.                                                                                              
 i) Add Page Objects java files under  ``` src/test/java>PageObjects ``` package.                                                 
-a) Copy the ``` .java file ``` which is under the ``` PageObjects folder ``` which is generated using  Automation Co-pilot.           b) Right click on the ``` PageObjects ``` package and paste the java files which are generated using Automation Co-pilot.
+ a) Copy the ``` .java file ``` which is under the ``` PageObjects folder ``` which is generated using  Automation Co-pilot.
+ b) Right click on the ``` PageObjects ``` package and paste the java files which are generated using Automation Co-pilot.
  ![pageobjectsfile](../../images/page-objects-file.png)
 ii) Add step definition file under ``` src/test/java>StepDefs ``` package.                                                       
 a) Copy the ``` .java file ``` which is under ``` StepDefs folder ``` which is generated using  Automation Co-pilot.
