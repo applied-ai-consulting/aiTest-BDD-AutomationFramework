@@ -51,7 +51,7 @@ public class BaseClass {
             WebDriverManager.firefoxdriver().clearDriverCache().setup();
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments("--headless");
-            firefoxOptions.addArguments("--window-size=1400,600");
+            firefoxOptions.addArguments("--window-size=1200,900");
             driver = new FirefoxDriver(firefoxOptions);
         }
         else if (browser.equalsIgnoreCase("Edge")){
@@ -91,7 +91,7 @@ public class BaseClass {
                 driver = new ChromeDriver(chromeOptions);
             }
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(60));
         driver.manage().window().maximize();

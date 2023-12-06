@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = {"stepDefs", "hooks"},
         monochrome = true,
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","junit:target/XMLReport.xml"},
-        tags = "@Test"
+        tags = "@Freeevent"
 )
 public class TestRunner {
 

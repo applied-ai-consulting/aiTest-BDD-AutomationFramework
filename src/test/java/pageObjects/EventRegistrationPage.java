@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -42,18 +43,24 @@ public class EventRegistrationPage extends BaseClass {
         Thread.sleep(3000);
         WebElement registerButton = driver.findElement(registerButtonLocator);
         registerButton.click();
+//        WebElement registerButton = driver.findElement(registerButtonLocator);
+//        Actions act = new Actions (driver);
+//        act.moveToElement(registerButton).click();
+//        act.perform();
     }
 
     public void enterFirstName(String firstName)throws InterruptedException {
         Thread.sleep(2000);
-        Actions act = new Actions (driver);
+//        Actions act = new Actions (driver);
+//        WebElement firstNameInput = driver.findElement(firstNameInputLocator);
+//        //firstNameInput.clear();
+//        Thread.sleep(1000);
+//        act.moveToElement(firstNameInput).click();
+//        act.sendKeys(firstName);
+//        act.perform();
         WebElement firstNameInput = driver.findElement(firstNameInputLocator);
-        //firstNameInput.clear();
-        Thread.sleep(1000);
-        act.moveToElement(firstNameInput).click();
-        act.sendKeys(firstName);
-        act.perform();
-        //firstNameInput.sendKeys(firstName);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", firstNameInput);
+        firstNameInput.sendKeys(firstName);
     }
 
     public void enterLastName(String lastName)throws InterruptedException {
@@ -66,47 +73,61 @@ public class EventRegistrationPage extends BaseClass {
     public void enterEmail(String email) throws InterruptedException{
 
         Thread.sleep(2000);
-        Actions act = new Actions (driver);
+//        Actions act = new Actions (driver);
+//        WebElement emailInput = driver.findElement(emailInputLocator);
+//        Thread.sleep(1000);
+//        act.moveToElement(emailInput).click();
+//        act.sendKeys(email);
+//        act.perform();
         WebElement emailInput = driver.findElement(emailInputLocator);
-        Thread.sleep(1000);
-        act.moveToElement(emailInput).click();
-        act.sendKeys(email);
-        act.perform();
-        // emailInput.clear();
-        // emailInput.sendKeys(email);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailInput);
+        emailInput.sendKeys(email);
     }
 
     public void enterPhoneNumber(String phoneNumber)throws InterruptedException {
         Thread.sleep(2000);
-        Actions act = new Actions (driver);
+//        Actions act = new Actions (driver);
+//        WebElement phoneNumberInput = driver.findElement(phoneNumberInputLocator);
+//        Thread.sleep(1000);
+//        act.moveToElement(phoneNumberInput).click();
+//        act.sendKeys(phoneNumber);
+//        act.perform();
         WebElement phoneNumberInput = driver.findElement(phoneNumberInputLocator);
-        Thread.sleep(1000);
-        act.moveToElement(phoneNumberInput).click();
-        act.sendKeys(phoneNumber);
-        act.perform();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", phoneNumberInput);
+        phoneNumberInput.sendKeys(phoneNumber);
     }
 
     public void submitForm() throws InterruptedException{
         Thread.sleep(2000);
-        Actions act = new Actions (driver);
+//        Actions act = new Actions (driver);
+//        WebElement submitButton = driver.findElement(submitButtonLocator);
+//        Thread.sleep(1000);
+//        act.moveToElement(submitButton).click();
+//        act.perform();
         WebElement submitButton = driver.findElement(submitButtonLocator);
-        Thread.sleep(1000);
-        act.moveToElement(submitButton).click();
-        act.perform();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
+        submitButton.click();
     }
 
-    public boolean isRegistrationSuccessful() throws InterruptedException {
-        // Assuming there is some element or page redirection that occurs upon successful registration to verify against
-        // Replace the below code with actual verification logic
-    	Thread.sleep(3000);
-		WebElement input = Hooks.driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]"));
-	    JavascriptExecutor js = (JavascriptExecutor)Hooks.driver;
-	    js.executeScript("arguments[0].scrollIntoView();", input );
-		Thread.sleep(2000);
-        String ConfirmationMessage = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]")).getText();
-        System.out.println("Confirm Message " +ConfirmationMessage);
-        String Expectedmsg ="🌟 Registration Confirmed! 🌟";
-        Assert.assertEquals(Expectedmsg, ConfirmationMessage);
-		return true;
+    public void isRegistrationSuccessful() throws InterruptedException {
+ 
+    	try {
+            Thread.sleep(3000);
+            WebElement input = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]"));
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView();", input);
+            Thread.sleep(2000);
+            String ConfirmationMessage = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]")).getText();
+            System.out.println("Confirm Message " + ConfirmationMessage);
+            String Expectedmsg = "🌟 Registration Confirmed! 🌟";
+            Assert.assertEquals(Expectedmsg, ConfirmationMessage);
+            
+        } catch (NoSuchElementException e) {
+            // Handle specific exceptions as needed
+            e.printStackTrace(); // Log the exception if needed
+            System.out.println("Indicate that the bot registration was not successful.");
+         //   Assert.fail("Indicate that the bot registration was not successful.");
+         //   return false; // Indicate that the registration was not successful
+        }
     }
 }

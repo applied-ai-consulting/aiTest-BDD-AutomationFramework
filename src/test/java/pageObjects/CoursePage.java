@@ -9,8 +9,11 @@ import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class CoursePage extends BaseClass {
-  
+	
   private WebDriver driver;
+  
+//Web Element Locators (Based on the supplied data)
+  private By courseImage = By.xpath("(//img[@class='mat-card-image'])[1]");
   
   public CoursePage(WebDriver driver) {
     this.driver = driver;
@@ -28,7 +31,7 @@ public class CoursePage extends BaseClass {
 	Thread.sleep(1000);
 //    WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(1) .mat-card-image"));
 //    firstCourse.click();
-	WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(1) .mat-card-image"));
+	WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(2) .mat-card-image"));
     JavascriptExecutor js = (JavascriptExecutor)driver;
     js.executeScript("arguments[0].scrollIntoView();", firstCourse );
     Thread.sleep(1000);
@@ -40,4 +43,13 @@ public class CoursePage extends BaseClass {
 	    WebElement elementToClick = driver.findElement(By.xpath("//h3[text()='Register']"));
 	    elementToClick.click();
 	  }
+  //paid course checkout
+  public void clickCourseImage() {
+//	    WebElement courseImageElement = driver.findElement(courseImage);
+//	    courseImageElement.click();
+	  WebElement courseImageElement = driver.findElement(courseImage);
+      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", courseImageElement);
+      courseImageElement.click();
+	  }
+
 }

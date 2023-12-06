@@ -8,18 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Homepage extends BaseClass {
-//    private static final By google_SearchBox = By.xpath("//textarea[@class='gLFyf']");
-//    private static final By firstSearchResult = By.xpath("//*[text() = 'Introducing ChatGPT']");
-//
-//    public void searchSomethingOnGoogle() throws InterruptedException {
-//        log.info("Searching Something on google");
-//        driver.findElement(google_SearchBox).sendKeys("chatgpt", Keys.ENTER);
-//    }
-//
-//    public void clickOnFirstSearchResult() throws InterruptedException {
-//        log.info("clicking on first result from Search results");
-//        driver.findElement(firstSearchResult).click();
-//    }
+
 	private WebDriver driver;
 
     // Web Element Locators (Supplied data converted to a placeholder for context)

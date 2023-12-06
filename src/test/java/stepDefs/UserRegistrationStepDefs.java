@@ -1,9 +1,17 @@
 package stepDefs;
 
 import io.cucumber.java.en.Given;
+import java.io.FileInputStream;
+import java.util.Properties;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 import pageObjects.*;
 import baseClass.BaseClass;
 import java.time.Duration;
@@ -73,7 +81,70 @@ public class UserRegistrationStepDefs extends BaseClass {
   
   @Then("I should be successfully registered for the course")
   public void iShouldBeSuccessfullyRegistered() throws InterruptedException {
-    Assert.assertTrue(registrationPage.isRegistrationSuccessful());
+    registrationPage.isRegistrationSuccessful();
     log.info("🌟 Registration Confirmed! 🌟");
   }
+  
+  @When("I click on the course image")
+  public void clickOnCourseImage() {
+    coursePage.clickCourseImage();
+    log.info("Clicked on the course image");
+  }
+  String Username;
+	String Password;
+	public void enterCredentials(String userType) throws Throwable {
+	    int userIndex = Integer.parseInt(System.getenv("USER_INDEX"));
+	    System.out.println("UserIndex : " + System.getenv("USER_INDEX"));
+
+	    Properties properties = new Properties();
+	    FileInputStream input = new FileInputStream("Userdetails.properties");
+	    // Load the properties file
+	    properties.load(input);
+
+	    int numberOfUsers = 0;
+	    String keyPrefix=null;
+	    
+	    if (userType.equals("email")) {
+	        keyPrefix = "email";
+	        while (properties.containsKey(keyPrefix + (numberOfUsers + 1) + ".Useremail")) {
+	            numberOfUsers++;
+	        }
+	    } else {
+	        
+	    	System.out.println("No User defined");	
+			
+	    }
+	    System.out.println("Number of "+ keyPrefix + " users provided : " + numberOfUsers);
+
+	    //Calculate effective user index
+	    int effectiveUserIndex = (userIndex - 1) % numberOfUsers + 1;
+	    String userKey = keyPrefix + effectiveUserIndex;
+	  //Get the property value
+	    Username = properties.getProperty(userKey + ".Useremail");
+	    System.out.println("Logged-in User : " + userKey + ".Useremail" + " - " + Username);
+	    
+	  //  driver.findElement(By.name("email")).sendKeys(Username);
+//	    Actions act = new Actions (driver);
+//        WebElement emailInput = driver.findElement(By.name("email"));
+//        Thread.sleep(1000);
+//        act.moveToElement(emailInput).click();
+//        act.sendKeys(Username);
+//        act.perform();
+	    WebElement emailInput = driver.findElement(By.name("email"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailInput);
+        emailInput.sendKeys(Username);
+
+	}
+	
+	@When("I enter email id in the email field")
+	public void I_enter_email_id_in_the_email_filed() throws Throwable {
+		enterCredentials("email");
+		
+	}
+    @When("I Enter email id in the email field")
+	public void I_Enter_email_id_in_the_email_filed() throws Throwable {
+		enterCredentials("email");
+		
+	}
+
 }

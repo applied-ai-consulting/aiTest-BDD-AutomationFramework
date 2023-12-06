@@ -9,6 +9,10 @@ import org.junit.Assert;
 
 public class LoginPage extends BaseClass {
   
+  private By usernameField = By.id("username");
+  private By passwordField = By.id("password");
+  private By loginButton = By.id("loginButton");
+
   private WebDriver driver;
   
   public LoginPage(WebDriver driver) {
@@ -29,4 +33,20 @@ public class LoginPage extends BaseClass {
     WebElement loginButton = driver.findElement(By.xpath("//button[contains(.,'Login')]"));
     loginButton.click();
   }
+  
+  public void enterUsername(String username) {
+	    WebElement usernameElement = driver.findElement(usernameField);
+	    usernameElement.sendKeys(username);
+	  }
+	  
+	  public void enterPassword(String password) {
+	    WebElement passwordElement = driver.findElement(passwordField);
+	    passwordElement.sendKeys(password);
+	  }
+	  
+	  public void clickLoginButton() {
+	    WebElement loginButtonElement = driver.findElement(loginButton);
+	    loginButtonElement.click();
+	  }
+
 }
