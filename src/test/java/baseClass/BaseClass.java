@@ -33,6 +33,7 @@ public class BaseClass {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--window-size=1400,600");
             driver = new ChromeDriver(chromeOptions);
         }
         else if(browser.equalsIgnoreCase("Chrome")){
@@ -42,6 +43,7 @@ public class BaseClass {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--disable-dev-shm-usage");
             chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--window-size=1400,600");
             driver = new ChromeDriver(chromeOptions);
         }
         else if (browser.equalsIgnoreCase("Firefox")){
@@ -49,6 +51,7 @@ public class BaseClass {
             WebDriverManager.firefoxdriver().clearDriverCache().setup();
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addArguments("--headless");
+            firefoxOptions.addArguments("--window-size=1400,600");
             driver = new FirefoxDriver(firefoxOptions);
         }
         else if (browser.equalsIgnoreCase("Edge")){
@@ -58,6 +61,7 @@ public class BaseClass {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--headless");
+            options.addArguments("--window-size=1400,600");
             driver = new EdgeDriver(options);
         }
         else if (browser.equalsIgnoreCase("devices")){
