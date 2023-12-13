@@ -91,8 +91,8 @@ public class BaseClass {
                 driver = new ChromeDriver(chromeOptions);
             }
         }
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(60));
         driver.manage().window().maximize();
         log.info("Navigating to URL");

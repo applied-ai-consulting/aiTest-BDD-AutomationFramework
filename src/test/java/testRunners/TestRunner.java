@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = {"stepDefs", "hooks"},
         monochrome = true,
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","junit:target/XMLReport.xml"},
-        tags = "@Freeevent"
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","junit:target/XMLReport.xml"}
+        //,tags = "@Paidevent"
 )
 public class TestRunner {
 

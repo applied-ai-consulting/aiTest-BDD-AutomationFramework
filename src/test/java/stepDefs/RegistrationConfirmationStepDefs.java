@@ -53,19 +53,19 @@ public class RegistrationConfirmationStepDefs extends BaseClass {
   }
   
   @When("I enter my first name as {string}")
-  public void enterFirstName(String firstName) {
+  public void enterFirstName(String firstName) throws InterruptedException {
     registrationPage.enterFirstName(firstName);
     log.info("Entered first name as " + firstName);
   }
   
   @When("I enter my last name as {string}")
-  public void enterLastName(String lastName) {
+  public void enterLastName(String lastName) throws InterruptedException {
     registrationPage.enterLastName(lastName);
     log.info("Entered last name as " + lastName);
   }
   
   @When("I enter my email as {string}")
-  public void enterEmail(String email) {
+  public void enterEmail(String email) throws InterruptedException {
     registrationPage.enterEmail(email);
     log.info("Entered email as " + email);
   }

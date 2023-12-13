@@ -46,6 +46,7 @@ public class RegistrationPage extends BaseClass {
 	Thread.sleep(500);
     WebElement inputField = driver.findElement(By.name(field));
     inputField.sendKeys(value);
+    Thread.sleep(1000);
   }
   public void EnterValueInField(String value) throws InterruptedException {
 	  Thread.sleep(500);
@@ -58,6 +59,7 @@ public class RegistrationPage extends BaseClass {
 	  WebElement inputField = driver.findElement(By.xpath("//input[@formcontrolname='phoneNumber']"));
       ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", inputField);
       inputField.sendKeys(value);
+      Thread.sleep(2000);
 	  }
   
   public void clickOnRegistorbutton() throws InterruptedException {
@@ -101,24 +103,28 @@ public class RegistrationPage extends BaseClass {
 	    registerButtonElement.click();
 	  }
 	  
-	  public void enterFirstName(String firstName) {
+	  public void enterFirstName(String firstName) throws InterruptedException {
 	    WebElement firstNameElement = driver.findElement(firstNameField);
 	    firstNameElement.sendKeys(firstName);
+	    Thread.sleep(3000);
 	  }
 	  
-	  public void enterLastName(String lastName) {
+	  public void enterLastName(String lastName) throws InterruptedException {
 	    WebElement lastNameElement = driver.findElement(lastNameField);
 	    lastNameElement.sendKeys(lastName);
+	    Thread.sleep(3000);
 	  }
 	  
-	  public void enterEmail(String email) {
+	  public void enterEmail(String email) throws InterruptedException {
 	    WebElement emailElement = driver.findElement(emailField);
 	    emailElement.sendKeys(email);
+	    Thread.sleep(3000);
 	  }
 	  
 	  public void enterPhoneNumber(String phoneNumber) throws InterruptedException {
 	    WebElement phoneNumberElement = driver.findElement(phoneNumberField);
 	    phoneNumberElement.sendKeys(phoneNumber);
+	    Thread.sleep(3000);
 	  }
 	  
 	  public void enterCardNumber(String cardNumber) throws InterruptedException {
@@ -166,6 +172,7 @@ public class RegistrationPage extends BaseClass {
 		  WebElement buttonElement = driver.findElement(By.xpath("//button[contains(.,'" + buttonName + "')]"));
 	      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonElement);
 	      buttonElement.click();
+	      Thread.sleep(3000);
 	  }
 	  
 	  public boolean verifyConfirmationMessage() throws InterruptedException {
