@@ -28,7 +28,7 @@ public class CoursePage extends BaseClass {
 
 // TODO STEP 2: Idenitfy course based on xpath (keep name constant)
   public void clickOnFirstCourse() throws InterruptedException {
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 //    WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(1) .mat-card-image"));
 //    firstCourse.click();
 	WebElement firstCourse = driver.findElement(By.cssSelector(".course:nth-child(2) .mat-card-image"));

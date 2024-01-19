@@ -27,7 +27,7 @@ public class EventRegistrationPage extends BaseClass {
     private By firstNameInputLocator = By.name("firstName");
     private By lastNameInputLocator = By.name("lastName");
     private By emailInputLocator = By.name("email");
-    private By phoneNumberInputLocator = By.cssSelector("#mat-input-5");
+    private By phoneNumberInputLocator = By.xpath("//input[@formcontrolname='phoneNumber']");
     private By submitButtonLocator = By.xpath("//h3[contains(.,'Submit')]");
 
     public EventRegistrationPage(WebDriver driver) {
@@ -84,6 +84,16 @@ public class EventRegistrationPage extends BaseClass {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailInput);
         emailInput.sendKeys(email);
     }
+    
+    public void selectCountryCode() throws InterruptedException {
+    	Thread.sleep(2000);
+        driver.findElement(By.xpath("//input[@type='text']")).click();
+        Thread.sleep(2000);
+    //    Assert.assertNotNull("Country code dropdown not found", countryCodeDropdown);
+    //    countryCodeDropdown.click();
+        WebElement countrycode = driver.findElement(By.xpath("(//span[@class='mat-option-text'])[3]"));
+        countrycode.click();
+    }
 
     public void enterPhoneNumber(String phoneNumber)throws InterruptedException {
         Thread.sleep(2000);
@@ -108,6 +118,7 @@ public class EventRegistrationPage extends BaseClass {
         WebElement submitButton = driver.findElement(submitButtonLocator);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
         submitButton.click();
+        
     }
 
     public void isRegistrationSuccessful() throws InterruptedException {

@@ -3,7 +3,8 @@ package pageObjects;
 import java.time.Duration;
 
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,7 +13,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import baseClass.BaseClass;
-import hooks.Hooks;
 
 import org.junit.Assert;
 
@@ -28,6 +28,7 @@ public class RegistrationPage extends BaseClass {
   private By cvcField = By.name("cvc");
   private By postalCodeField = By.name("postal");
   private By buyNowButton = By.xpath("//button[contains(.,'Buy Now')]");
+  private By submitButton = By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]");
   
   private WebDriver driver;
   
@@ -172,14 +173,18 @@ public class RegistrationPage extends BaseClass {
 		  WebElement buttonElement = driver.findElement(By.xpath("//button[contains(.,'" + buttonName + "')]"));
 	      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonElement);
 	      buttonElement.click();
-	      Thread.sleep(3000);
-	  }
+	     Thread.sleep(3000);
+//	      WebElement logoutOptionElement = waitForVisibility(buyNowButton);
+//	      logoutOptionElement.click();
+		}
 	  
 	  public boolean verifyConfirmationMessage() throws InterruptedException {
 			
 		  Thread.sleep(3000);
-			WebElement input = Hooks.driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]"));
-		    JavascriptExecutor js = (JavascriptExecutor)Hooks.driver;
+//		  WebElement OptionElement = waitForVisibility(submitButton);
+//	      OptionElement.click();
+	      WebElement input = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]"));
+		    JavascriptExecutor js = (JavascriptExecutor)driver;
 		    js.executeScript("arguments[0].scrollIntoView();", input );
 			Thread.sleep(2000);
 	        String ConfirmationMessage = driver.findElement(By.xpath("//h2[contains(text(),'🌟 Registration Confirmed! 🌟')]")).getText();

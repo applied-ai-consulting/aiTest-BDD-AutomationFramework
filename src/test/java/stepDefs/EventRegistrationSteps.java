@@ -77,6 +77,13 @@ public class EventRegistrationSteps extends BaseClass {
         eventRegistrationPage.enterEmail(email);
         log.info("User filled in the email");
     }
+    
+    @When("the user selects the country code from the dropdown")
+    public void the_user_selects_the_country_code_from_the_dropdown() throws InterruptedException {
+    	EventRegistrationPage eventRegistrationPage = new EventRegistrationPage(driver);
+    	eventRegistrationPage.selectCountryCode();
+        log.info("Selected the country code: " + "+91 India");
+    }
 
     @When("^User fills in the phone number \"([^\"]*)\"$")
     public void user_fills_in_the_phone_number(String phoneNumber) throws InterruptedException{
